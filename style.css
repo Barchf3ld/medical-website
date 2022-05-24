@@ -43,6 +43,8 @@ ul{
   list-style: none;
 }
 
+
+/*barra de navegação*/
 nav{
   display: flex;
 
@@ -62,6 +64,12 @@ nav .wrapper{
   justify-content: space-between;
 }
 
+nav button{
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
 .scroll{
   background-color: var(--green);
   width: 100vw;
@@ -71,7 +79,7 @@ nav .wrapper{
   fill: #ffffff;
 }
 
-.scroll a:nth-child(2) svg path {
+.scroll .open-menu path {
   stroke: #ffffff;
 }
 
@@ -80,6 +88,8 @@ nav .wrapper{
   height: 1.8rem;
 }
 
+
+/*section initial*/
 .initial{
   margin-top: calc(4.1rem + var(--nav-height));
 }
@@ -187,6 +197,8 @@ nav .wrapper{
   font-weight: 400;
 }
 
+
+/*section services*/
 .services{
   margin-top: 10rem;
   padding-bottom: 10rem;
@@ -257,6 +269,7 @@ nav .wrapper{
 }
 
 
+/*section about-us*/
 .about-us{
   background-color: var(--beige);
 
@@ -299,6 +312,7 @@ nav .wrapper{
 }
 
 
+/*section contact*/
 .contact{
   background-color: #ffffff;
 
@@ -339,6 +353,8 @@ nav .wrapper{
   height: 21.3rem;
 }
 
+
+/*section footer*/
 footer{
   background-color: var(--green);
 
@@ -368,4 +384,100 @@ footer{
 
 .icons{
   margin-right: 3.2rem;
+}
+
+
+/*menu expanded*/
+
+.menu, .close-menu, body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded > :not(nav){
+  display: none;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu{
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: var(--green);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+body.menu-expanded nav {
+  position: relative;
+}
+
+.menu ul:nth-child(1){
+  display: flex;
+  flex-direction: column;
+
+  gap: 4.8rem;
+  margin-top: calc(6rem + var(--nav-height));
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+}
+
+.menu ul li a{
+  text-decoration: none;
+  color: var(--beige);
+}
+
+.button-expanded{
+  display: inline-block;
+
+  background-color: #ffffff;
+  border-radius: 4rem;
+
+  color: var(--green);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.3rem;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  padding: 1.6rem 3.2rem;
+  margin-top: 4.8rem;
+}
+
+.social-links{
+  display: flex;
+  gap: 3.2rem;
+
+  margin-top: 8rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded .close-menu{
+  position: relative;
+  z-index: 10;
+}
+
+body.menu-expanded .logo path {
+  fill: #ffffff;
+}
+
+body.menu-expanded .close-menu path{
+  stroke: #ffffff;
 }
